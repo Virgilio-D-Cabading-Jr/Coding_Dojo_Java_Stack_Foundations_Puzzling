@@ -16,9 +16,12 @@ import java.util.ArrayList;
 
 public class PuzzleJava {
 
-    // generate and return an array with 10 random numbers between 1 and 20 inclusive.
+    //  **** Get Ten Rolls **********************************************
+    //  generate and return an array with 10 random numbers between 1 and 20 inclusive
+    //  @return: ArrayList of Integers
     public ArrayList<Integer> getTenRolls() {
         ArrayList<Integer> intArray = new ArrayList<Integer>();
+
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HHmmss");
         int currentTime = Integer.parseInt(simpleDateFormat.format(new Date()));
@@ -30,5 +33,22 @@ public class PuzzleJava {
         }
         return intArray;
     }
-    
+
+    //  **** Get Random Letter ******************************************
+    //  @return: char
+    public char getRandomLetter() {
+        char[] alphabet = {'A', 'B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+        
+        //  ---- Generate a random number using the current time --------
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HHmmss");
+        int currentTime = Integer.parseInt(simpleDateFormat.format(new Date()));
+        Random randMachine = new Random();
+        randMachine.setSeed(currentTime);
+        int randomInt = randMachine.nextInt(26);                            // Generates a random int from 0 to 25
+        if (randomInt % 2 == 0) {
+            // Character temp = alphabet[randomInt].toLowerCase(); 
+            return (char) Character.toLowerCase(alphabet[randomInt]);
+        }
+        return alphabet[randomInt];
+    }
 }

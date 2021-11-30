@@ -8,14 +8,20 @@ import java.util.Random;
 
 public class TestPuzzleJava {
 	public static void main(String[] args) {
+		System.out.println("/////////////////////////////////////////////////////");
+		System.out.println("TEST PUZZLE JAVA APPLICATION\n");
+		
 		PuzzleJava generator = new PuzzleJava();
+
+		System.out.println("*****************************************************");
+		System.out.println("Get Ten Rolls\n");
 		ArrayList<Integer> randomRolls = generator.getTenRolls();
 		System.out.println(randomRolls);
+		System.out.println("");
 		
-
-    	//..
-		// Write your other test cases here.
-		//..
+		System.out.println("*****************************************************");
+		System.out.printf("Get Random Letter: %s\n\n", generator.getRandomLetter());
+    	
 	}
 }
 
