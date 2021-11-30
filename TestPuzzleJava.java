@@ -1,0 +1,10 @@
+//  /////////////////////////////////////////////////////////////////////
+//  TEST PUZZLE JAVA APP
+//  By Virgilio D. Cabading Jr.     Created at: November 30, 2021 0730
+//  /////////////////////////////////////////////////////////////////////
+
+public class TestPuzzleJava {
+    public static void main(String[] args) {
+        
+    }
+}
