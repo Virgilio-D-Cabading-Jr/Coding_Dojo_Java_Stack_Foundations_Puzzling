@@ -22,6 +22,17 @@ public class TestPuzzleJava {
 		System.out.println("*****************************************************");
 		System.out.printf("Get Random Letter: %s\n\n", generator.getRandomLetter());
     	
+		System.out.println("*****************************************************");
+		System.out.println("Generate Password\n");
+
+		System.out.println("Password is: " + generator.generatePassword());
+		System.out.println("");
+
+		System.out.println("*****************************************************");
+		System.out.println("Generate New Password Set\n");
+		for (String password : generator.getNewPasswordSet(10)) {
+			System.out.println(password);
+		}
 	}
 }
 

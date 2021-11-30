@@ -15,6 +15,14 @@ import java.util.ArrayList;
 
 
 public class PuzzleJava {
+    private Random randMachine;
+
+    public PuzzleJava() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HHmmss");
+        int currentTime = Integer.parseInt(simpleDateFormat.format(new Date()));
+        randMachine = new Random();
+        randMachine.setSeed(currentTime);
+    }
 
     //  **** Get Ten Rolls **********************************************
     //  generate and return an array with 10 random numbers between 1 and 20 inclusive
@@ -22,14 +30,8 @@ public class PuzzleJava {
     public ArrayList<Integer> getTenRolls() {
         ArrayList<Integer> intArray = new ArrayList<Integer>();
 
-
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HHmmss");
-        int currentTime = Integer.parseInt(simpleDateFormat.format(new Date()));
-
-        Random randMachine = new Random();
-        randMachine.setSeed(currentTime);
         for (int i=0; i<10; i++) {
-            intArray.add( randMachine.nextInt(20) + 1 );
+            intArray.add( randMachine.nextInt(20) + 1 );                    // Add random int from 1 to 20
         }
         return intArray;
     }
@@ -39,16 +41,33 @@ public class PuzzleJava {
     public char getRandomLetter() {
         char[] alphabet = {'A', 'B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
         
-        //  ---- Generate a random number using the current time --------
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HHmmss");
-        int currentTime = Integer.parseInt(simpleDateFormat.format(new Date()));
-        Random randMachine = new Random();
-        randMachine.setSeed(currentTime);
         int randomInt = randMachine.nextInt(26);                            // Generates a random int from 0 to 25
         if (randomInt % 2 == 0) {
             // Character temp = alphabet[randomInt].toLowerCase(); 
             return (char) Character.toLowerCase(alphabet[randomInt]);
         }
         return alphabet[randomInt];
+    }
+
+    //  **** Generate password ******************************************
+    //      Creates a random string of eight characters
+    //  @return String password
+    public String generatePassword() {
+        String password = "";
+        for (int i=0; i<8; i++) {
+            password += this.getRandomLetter();
+        }
+        return password;
+    }
+
+    //  **** Get New Password Set ***************************************
+    //  @param: int numPassword: determines how many passwords to make
+    //  @return: ArrayList<String> password set
+    public ArrayList<String> getNewPasswordSet(int numPassword) {
+        ArrayList<String> passwordSet = new ArrayList<String>();
+        for (int i=0; i<numPassword; i++) {
+            passwordSet.add(this.generatePassword());
+        }
+        return passwordSet;
     }
 }
